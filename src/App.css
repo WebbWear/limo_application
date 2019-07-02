@@ -1,14 +1,27 @@
 .App {
-  text-align: center;
+  height: 100vh;
+  /* background-size: cover; */
+  background-color: black;
+  background-repeat: no-repeat;
+  background-position: top center;
 }
 
-
-
-.App-header {
-  background-color: #000000;
-  min-height: 100vh;
+.App-content {
+  height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: center;
+  padding: 40px;
+}
+
+@media (min-width: 930px ) {
+  .App {
+      background-position: center center;
+  }
+
+  .App-content {
+      align-items: flex-end;
+      justify-content: center;
+    }
 }

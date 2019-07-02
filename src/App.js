@@ -1,22 +1,33 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 
-import Landing from './components/Landing';
-import LimoImg from './assets/pics/black-sprinter-limo.jpg';
+import desktopImage from './assets/pics/black-sprinter-limo.jpg';
+import mobileImage from './assets/pics/benz-logo.png';
 
 import './App.css';
 
+const App = () => {
+  const imageUrl = useWindowWidth() >= 930 ? desktopImage : mobileImage;
 
-function App() {
   return (
-    <div className="App">
-      <Router>
-      <header className="App-header">
-        <img src={LimoImg} alt="Palma Ceia Limo"/>
-      </header>
-      </Router>
-    </div>
+      <div className="App" style={{backgroundImage: `url(${imageUrl})` }}>
+            
+      </div>
   );
-}
+};
+
+const useWindowWidth = () => {
+  const [windowWidth, setWindowWidth ] = useState(window.innerWidth);
+
+  const handleWindowResize = () => {
+      setWindowWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+      window.addEventListener('resize', handleWindowResize);
+      return () => window.removeEventListener('resize', handleWindowResize);
+  },[]);
+
+  return windowWidth;
+};
 
 export default App;
