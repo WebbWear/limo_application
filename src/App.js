@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <Router>
       <header className="App-header">
-        <img src="/assets/black-sprinter-limo.jpeg"/>
+        <img src="../src/assets/pics/black-sprinter-limo.jpg" alt="Palma Ceia Limo"/>
       </header>
       </Router>
     </div>
