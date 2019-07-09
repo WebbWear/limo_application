@@ -18,6 +18,7 @@
 @media (min-width: 930px ) {
   .App {
       background-position: center center;
+      padding-top: 40px;
   }
 
   .App-content {
