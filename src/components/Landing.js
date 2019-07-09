@@ -1,16 +1,33 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
+import App from '../App';
+import desktopImage from '../assets/pics/black-sprinter-limo.jpg';
+import mobileImage from '../assets/pics/benz-logo.png';
 
-class Landing extends Component {
-    render() {
-        return (
-            <div>
-                Landing
-            </div>
-        );
-    }
-}
+import '../App.css';
+
+const Landing = () => {
+  const imageUrl = useWindowWidth() >= 930 ? desktopImage : mobileImage;
+
+  return (
+      <div className="App" style={{backgroundImage: `url(${imageUrl})` }}>
+            
+      </div>
+  );
+};
+
+const useWindowWidth = () => {
+  const [windowWidth, setWindowWidth ] = useState(window.innerWidth);
+
+  const handleWindowResize = () => {
+      setWindowWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+      window.addEventListener('resize', handleWindowResize);
+      return () => window.removeEventListener('resize', handleWindowResize);
+  },[]);
+
+  return windowWidth;
+};
 
 export default Landing;
-
-
-
