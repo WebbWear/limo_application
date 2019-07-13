@@ -16,9 +16,7 @@ class App extends Component {
         <li>
           <Link to="/">Home</Link>
         </li>
-        <li>
-          <Link to="/landing">Landing</Link>
-        </li>
+        
         <li>
           <Link to="/map">Map</Link>
         </li>
@@ -26,10 +24,9 @@ class App extends Component {
           <Link to="/pics">Pics</Link>
         </li>
       </ul>
-        <Route path="/" component={App} />
-        <Route path="/landing" component={Landing} />
-        <Route path="/map" component={Map} />
-        <Route path="/pics" component={Pics} />
+        <Route exact path="/" component={Landing} />
+        <Route exact path="/map" component={Map} />
+        <Route exact path="/pics" component={Pics} />
       </div>
     </Router>
             
