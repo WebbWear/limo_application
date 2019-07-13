@@ -1,33 +1,37 @@
-import React, { useState, useEffect } from 'react';
-
-import desktopImage from './assets/pics/black-sprinter-limo.jpg';
-import mobileImage from './assets/pics/benz-logo.png';
+import React, { Component } from 'react';
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 
 import './App.css';
 
-const App = () => {
-  const imageUrl = useWindowWidth() >= 930 ? desktopImage : mobileImage;
+import Landing from'./components/Landing';
+import Map from './components/Map';
+import Pics from './components/Pics';
 
-  return (
-      <div className="App" style={{backgroundImage: `url(${imageUrl})` }}>
-            
+class App extends Component {
+    render() {
+        return (
+          <Router>
+      <div>
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        
+        <li>
+          <Link to="/map">Map</Link>
+        </li>
+        <li>
+          <Link to="/pics">Pics</Link>
+        </li>
+      </ul>
+        <Route exact path="/" component={Landing} />
+        <Route exact path="/map" component={Map} />
+        <Route exact path="/pics" component={Pics} />
       </div>
-  );
-};
-
-const useWindowWidth = () => {
-  const [windowWidth, setWindowWidth ] = useState(window.innerWidth);
-
-  const handleWindowResize = () => {
-      setWindowWidth(window.innerWidth);
-  };
-
-  useEffect(() => {
-      window.addEventListener('resize', handleWindowResize);
-      return () => window.removeEventListener('resize', handleWindowResize);
-  },[]);
-
-  return windowWidth;
-};
+    </Router>
+            
+        );
+    }
+}
 
 export default App;
