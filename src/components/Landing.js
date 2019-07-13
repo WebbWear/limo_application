@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import App from '../App';
-import desktopImage from '../assets/pics/black-sprinter-limo.jpg';
-import mobileImage from '../assets/pics/benz-logo.png';
+import desktopImage from './assets/pics/black-sprinter-limo.jpg';
+import mobileImage from './assets/pics/benz-logo.png';
 
 import '../App.css';
 
