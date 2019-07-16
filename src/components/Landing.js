@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import desktopImage from './assets/pics/black-sprinter-limo.jpg';
-import mobileImage from './assets/pics/benz-logo.png';
-
-import '../App.css';
+import desktopImage from '../assets/pics/black-sprinter-limo.jpg';
+import mobileImage from '../assets/pics/benz-logo.png';
 
 const Landing = () => {
   const imageUrl = useWindowWidth() >= 930 ? desktopImage : mobileImage;
 
   return (
       <div className="App" style={{backgroundImage: `url(${imageUrl})` }}>
-            
+
       </div>
   );
 };
